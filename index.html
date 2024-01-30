@@ -64,19 +64,14 @@
     </div>
     <div class="container">
       <div class="sidebar">
-        <div class="create-task">
-          <button class="create-button" onclick="showTaskPopup()"> 
-            <svg width="40" height="36" viewBox="0 0 36 36">
-              <path fill="#34A853" d="M16 16v14h4V20z"></path>
-              <path fill="#4285F4" d="M30 16H20l-4 4h14z"></path><path fill="#FBBC05" d="M6 16v4h10l4-4z"></path><path fill="#EA4335" d="M20 16V6h-4v14z"></path><path fill="none" d="M0 0h36v36H0z"></path>
-            </svg>
-            <div class="create-text">Create</div>
-            <i class="fa-solid fa-caret-down"></i>
-          </button>
-            
-            
-        </div>
-        
+        <button class="create-button" onclick="openTaskWindow('today-date')">
+          <svg width="40" height="36" viewBox="0 0 36 36">
+            <path fill="#34A853" d="M16 16v14h4V20z"></path>
+            <path fill="#4285F4" d="M30 16H20l-4 4h14z"></path><path fill="#FBBC05" d="M6 16v4h10l4-4z"></path><path fill="#EA4335" d="M20 16V6h-4v14z"></path><path fill="none" d="M0 0h36v36H0z"></path>
+          </svg>
+          <div class="create-text">Create</div>
+          <i class="fa-solid fa-caret-down"></i>
+        </button>
         <div class="mini-header">
           <div class="curr-date"></div>
           <div class="mini-chevrons">
@@ -121,181 +116,35 @@
         </div>
       </div>
       <div class="calendar"></div>
-    </div>
-    <div class ="forms">
-      <div id="taskPopup" style="display: none;">
-        <div class="popheader">
-          <div class="popdrag"></div>
-          <div id="closeButton" onclick="closeTaskPopup()">&times;</div>
-        </div>
-        <form class="entry-form">
-          <div class="popcontainer">
-            <div class="form--body__title form-body-single">
-              <input type="text" placeholder="Add title" class="form--body__title-input" maxlength="50" spellcheck="false"
-                required>
-            </div>
-            <div class="form--body__description form-body-single">
-              <textarea placeholder="Add description" class="form--body__description-input" maxLength="200"
-                spellcheck="false"></textarea>
-            </div>
-            <div class="form--body__start form-body-double">
-              <div class="form--body__start-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="var(--white3)"
-                  class="form--body-svg__start">
-                  <path
-                    d="m15.3 16.7 1.4-1.4-3.7-3.7V7h-2v5.4ZM12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-10Zm0 8q3.325 0 5.663-2.337Q20 15.325 20 12t-2.337-5.663Q15.325 4 12 4T6.338 6.337Q4 8.675 4 12t2.338 5.663Q8.675 20 12 20Z" />
-                </svg>
-              </div>
-              <div class="form--body__start-inputs">
-                <span class="form--body-start__date" data-form-date-type="start">
-                </span>
-    
-                <div class="form-br"></div>
-                <button onclick="myFunction()">From</button>
-                <!-- <span class="form--body-start__time" data-form-time-type="start">
-                  
-                </span> -->
-              </div>
-            </div>
-            <!-- <div class="form--body__end form-body-double">
-              <div class="form--body__end-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="var(--white3)"
-                  class="form--body-svg__end">
-                  <path
-                    d="m15.3 16.7 1.4-1.4-3.7-3.7V7h-2v5.4ZM12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-10Zm0 8q3.325 0 5.663-2.337Q20 15.325 20 12t-2.337-5.663Q15.325 4 12 4T6.338 6.337Q4 8.675 4 12t2.338 5.663Q8.675 20 12 20Z" />
-                </svg>
-              </div>
-              <div class="form--body__end-inputs">
-                <span class="form--body-end__date" data-form-date-type="end">
-                </span>
-    
-                <div class="form-br"></div>
-    
-              </div>
-            </div> -->
-            <!-- </div> -->
-            <!-- <div class="mini-header">
-              <div class="currr-date"></div>
-              <div class="mini-chevrons">
-                <i class="fa-solid fa-chevron-left fa-sm minimini-left" style="color: #000000;"></i>
-                <i class="fa-solid fa-chevron-right fa-sm minimini-right" style="color: #000000;"></i>
-              </div>
-            </div>
-            <div class="minimini-calendar"></div> -->
-            
-            <div class="popfooter">
-              <button class="saveTask" type="submit" role="button" aria-label="button">save</button>
-            </div>
+      <div class="task-window" style="display: none;">
+        <div class="task-window-header">
+          <div class="task-window-close-button">
+            <i class="fa-solid fa-xmark fa-2xl" style="color: #616161;"></i>
           </div>
-        
-          
-        
-
-      </div>
-    </div>
-    <!-- <div class="formss">
-      <div class="entries__form--header">
-        <div class="form-header--dragarea"></div>
-        <div class="form--header__icon-close" data-tooltip="close form">
-          <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="var(--white2)">
-            <path
-              d="M6.062 15 5 13.938 8.938 10 5 6.062 6.062 5 10 8.938 13.938 5 15 6.062 11.062 10 15 13.938 13.938 15 10 11.062Z" />
-          </svg>
+        </div>
+        <input class="title-text" type="text" placeholder="Add title">
+        <div class="event-task-buttons">
+          <div class="event-button">Event</div>
+          <div class="task-button">Task</div>
+        </div>
+        <div class="date-display-section">
+          <i class="fa-regular fa-clock fa-2xl" style="color: #616161;"></i>
+          <div class="date-display">Jan 2, 2024</div>
+          <div class="add-time-button">Add time</div>
+        </div>
+        <div class="description-section">
+          <i class="fa-solid fa-bars-staggered fa-2xl" style="color: #616161;"></i>
+          <input class="description-text" type="text" placeholder="Add description">
+        </div>
+        <div class="task-section">
+          <i class="fa-solid fa-list fa-2xl" style="color: #616161;"></i>
+          My Tasks
+        </div>
+        <div class="add-task-div">
+          <button class="add-task">SAVE</button>
         </div>
       </div>
-  
-      <form class="entry-form">
-        <div class="entries__form--body">
-         
-          <div class="form--body__title form-body-single">
-            <input type="text" placeholder="Add title" class="form--body__title-input" maxlength="50" spellcheck="false"
-              required>
-          </div>
-  
-          <div class="form--body__description form-body-single">
-            <textarea placeholder="Add description" class="form--body__description-input" maxLength="200"
-              spellcheck="false"></textarea>
-          </div>
-  
-          
-          <div class="form--body__start form-body-double">
-            <div class="form--body__start-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="var(--white3)"
-                class="form--body-svg__start">
-                <path
-                  d="m15.3 16.7 1.4-1.4-3.7-3.7V7h-2v5.4ZM12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-10Zm0 8q3.325 0 5.663-2.337Q20 15.325 20 12t-2.337-5.663Q15.325 4 12 4T6.338 6.337Q4 8.675 4 12t2.338 5.663Q8.675 20 12 20Z" />
-              </svg>
-            </div>
-            <div class="form--body__start-inputs">
-              <span class="form--body-start__date" data-form-date-type="start">
-              </span>
-  
-              <div class="form-br"></div>
-  
-              <span class="form--body-start__time" data-form-time-type="start">
-                1:30am
-              </span>
-            </div>
-          </div>
-  
-         
-          <div class="form--body__end form-body-double">
-            <div class="form--body__end-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="var(--white3)"
-                class="form--body-svg__end">
-                <path
-                  d="m15.3 16.7 1.4-1.4-3.7-3.7V7h-2v5.4ZM12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-10Zm0 8q3.325 0 5.663-2.337Q20 15.325 20 12t-2.337-5.663Q15.325 4 12 4T6.338 6.337Q4 8.675 4 12t2.338 5.663Q8.675 20 12 20Z" />
-              </svg>
-            </div>
-            <div class="form--body__end-inputs">
-              <span class="form--body-end__date" data-form-date-type="end">
-              </span>
-  
-              <div class="form-br"></div>
-  
-  
-              <span class="form--body-end__time" data-form-time-type="end">
-                3:30am
-              </span>
-  
-            </div>
-          </div>
-  
-          
-          <div class="form--body__category form-body-double">
-            <div class="form--body__category-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="var(--white3)">
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" />
-              </svg>
-            </div>
-            <div class="form--body__category-inputs">
-              <aside class="close-options-floating__btn"
-                style="z-index:-1;user-select:none;pointer-events:none;opacity:0;box-shadow:none;">
-                <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="var(--white3)">
-                  <path
-                    d="M6.062 15 5 13.938 8.938 10 5 6.062 6.062 5 10 8.938 13.938 5 15 6.062 11.062 10 15 13.938 13.938 15 10 11.062Z" />
-                </svg>
-              </aside>
-              <div class="form--body__category-modal--wrapper">
-                <div class="form--body__category-modal--wrapper-selection">
-                  <span class="form--body__category-modal--wrapper__color"></span>
-                  <span class="form--body__category-modal--wrapper__title">
-                  </span>
-                </div>
-                <span class="form--body__category-modal hide-form-category-modal">
-                </span>
-              </div>
-            </div>
-          </div>
-  
-        </div>
-        <div class="entries__form--footer">
-          <button class="form--footer__button-cancel" type="reset" role="button" aria-label="button">reset</button>
-          <button class="form--footer__button-save" type="submit" role="button" aria-label="button">save</button>
-        </div>
-        
-    </div> -->
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
