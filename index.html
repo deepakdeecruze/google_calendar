@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Calendar</title>
+    <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/imagist/image/fetch/q_auto/f_auto/c_scale,w_2624/https%3A%2F%2Fimages.ctfassets.net%2Fdm4oa8qtogq0%2F6PEjxy5GpAUIywXyMFKueG%2F0e9a4a275e6be1c62b65f18ee0d68985%2FCalendar.png">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <div class="title-icons">
+        <i class="fa-solid fa-bars"></i>
+        <img src="https://res.cloudinary.com/imagist/image/fetch/q_auto/f_auto/c_scale,w_2624/https%3A%2F%2Fimages.ctfassets.net%2Fdm4oa8qtogq0%2F6PEjxy5GpAUIywXyMFKueG%2F0e9a4a275e6be1c62b65f18ee0d68985%2FCalendar.png" height="40" width="40"/>
+        <p>Calendar</p>
+      </div>
+      <button class="today-button">Today</button>
+      <div class="chevrons">
+        <i class="fa-solid fa-chevron-left fa-xs prev"></i>
+        <i class="fa-solid fa-chevron-right fa-xs next"></i>
+      </div>
+      <div class="date">
+        <p></p>
+      </div>
+      <div class="side-icons">
+        <i class="fa fa-search"></i>
+        <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="xIrdD NMm5M">
+          <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"></path>
+        </svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class=" NMm5M">
+          <path d="M13.85 22.25h-3.7c-.74 0-1.36-.54-1.45-1.27l-.27-1.89c-.27-.14-.53-.29-.79-.46l-1.8.72c-.7.26-1.47-.03-1.81-.65L2.2 15.53c-.35-.66-.2-1.44.36-1.88l1.53-1.19c-.01-.15-.02-.3-.02-.46 0-.15.01-.31.02-.46l-1.52-1.19c-.59-.45-.74-1.26-.37-1.88l1.85-3.19c.34-.62 1.11-.9 1.79-.63l1.81.73c.26-.17.52-.32.78-.46l.27-1.91c.09-.7.71-1.25 1.44-1.25h3.7c.74 0 1.36.54 1.45 1.27l.27 1.89c.27.14.53.29.79.46l1.8-.72c.71-.26 1.48.03 1.82.65l1.84 3.18c.36.66.2 1.44-.36 1.88l-1.52 1.19c.01.15.02.3.02.46s-.01.31-.02.46l1.52 1.19c.56.45.72 1.23.37 1.86l-1.86 3.22c-.34.62-1.11.9-1.8.63l-1.8-.72c-.26.17-.52.32-.78.46l-.27 1.91c-.1.68-.72 1.22-1.46 1.22zm-3.23-2h2.76l.37-2.55.53-.22c.44-.18.88-.44 1.34-.78l.45-.34 2.38.96 1.38-2.4-2.03-1.58.07-.56c.03-.26.06-.51.06-.78s-.03-.53-.06-.78l-.07-.56 2.03-1.58-1.39-2.4-2.39.96-.45-.35c-.42-.32-.87-.58-1.33-.77l-.52-.22-.37-2.55h-2.76l-.37 2.55-.53.21c-.44.19-.88.44-1.34.79l-.45.33-2.38-.95-1.39 2.39 2.03 1.58-.07.56a7 7 0 0 0-.06.79c0 .26.02.53.06.78l.07.56-2.03 1.58 1.38 2.4 2.39-.96.45.35c.43.33.86.58 1.33.77l.53.22.38 2.55z"></path>
+          <circle cx="12" cy="12" r="3.5"></circle>
+        </svg>
+        <select>
+          <option>Day</option>
+          <option>Week</option>
+          <option selected>Month</option>
+          <option>Year</option>
+        </select>
+        <div class="nearby-buttons">
+          <button class="cal-logo"><i class="fa-regular fa-calendar"></i></button>
+          <button><i class="fa-regular fa-circle-check"></i></button>
+        </div>
+        <svg class="gb_i" width="24" height="24" focusable="false" viewBox="0 0 24 24">
+          <path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path>
+          <image src="https://ssl.gstatic.com/gb/images/bar/al-icon.png" alt="" height="24" width="24" style="border:none;display:none \9"></image>
+        </svg>
+        <div class="profile-pic">
+          <img width="40" height="40" src="https://assets.codepen.io/4013560/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1580487532&width=512"/>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="sidebar">
+        <div class="create-task">
+          <button class="create-button" onclick="showTaskPopup()"> 
+            <svg width="40" height="36" viewBox="0 0 36 36">
+              <path fill="#34A853" d="M16 16v14h4V20z"></path>
+              <path fill="#4285F4" d="M30 16H20l-4 4h14z"></path><path fill="#FBBC05" d="M6 16v4h10l4-4z"></path><path fill="#EA4335" d="M20 16V6h-4v14z"></path><path fill="none" d="M0 0h36v36H0z"></path>
+            </svg>
+            <div class="create-text">Create</div>
+            <i class="fa-solid fa-caret-down"></i>
+          </button>
+            
+            
+        </div>
+        
+        <div class="mini-header">
+          <div class="curr-date"></div>
+          <div class="mini-chevrons">
+            <i class="fa-solid fa-chevron-left fa-sm mini-left" style="color: #000000;"></i>
+            <i class="fa-solid fa-chevron-right fa-sm mini-right" style="color: #000000;"></i>
+          </div>
+        </div>
+        <div class="mini-calendar"></div>
+        <div class="search-people">
+          <i class="fa-regular fa-user fa-2sm"></i>
+          Search for people
+        </div>
+        <div class="my-calendars">
+          <label id="togL" for="togC">
+            <div class="my-cal-title">My calendars</div>
+            <i class="fa-solid fa-chevron-down fa-sm collapsible-arrow"></i>
+          </label>
+          <input id="togC" type="checkbox">
+          <div id="content">
+            <div class="content-item">
+              <label class="check-container">
+                <input type="checkbox" checked="checked">
+                <span class="checkmark first"></span>
+              </label>
+              Contacts
+            </div>
+            <div class="content-item">
+              <label class="check-container">
+                <input type="checkbox" checked="checked">
+                <span class="checkmark second"></span>
+              </label>
+              Tasks
+            </div>
+            <div class="content-item">
+              <label class="check-container">
+                <input type="checkbox" checked="checked">
+                <span class="checkmark third"></span>
+              </label>
+              Holidays
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="calendar"></div>
+    </div>
+    <div class ="forms">
+      <div id="taskPopup" style="display: none;">
+        <div class="popheader">
+          <div class="popdrag"></div>
+          <div id="closeButton" onclick="closeTaskPopup()">&times;</div>
+        </div>
+        <form class="entry-form">
+          <div class="popcontainer">
+            <div class="form--body__title form-body-single">
+              <input type="text" placeholder="Add title" class="form--body__title-input" maxlength="50" spellcheck="false"
+                required>
+            </div>
+            <div class="form--body__description form-body-single">
+              <textarea placeholder="Add description" class="form--body__description-input" maxLength="200"
+                spellcheck="false"></textarea>
+            </div>
+            <div class="form--body__start form-body-double">
+              <div class="form--body__start-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="var(--white3)"
+                  class="form--body-svg__start">
+                  <path
+                    d="m15.3 16.7 1.4-1.4-3.7-3.7V7h-2v5.4ZM12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-10Zm0 8q3.325 0 5.663-2.337Q20 15.325 20 12t-2.337-5.663Q15.325 4 12 4T6.338 6.337Q4 8.675 4 12t2.338 5.663Q8.675 20 12 20Z" />
+                </svg>
+              </div>
+              <div class="form--body__start-inputs">
+                <span class="form--body-start__date" data-form-date-type="start">
+                </span>
+    
+                <div class="form-br"></div>
+                <button onclick="myFunction()">From</button>
+                <!-- <span class="form--body-start__time" data-form-time-type="start">
+                  
+                </span> -->
+              </div>
+            </div>
+            <!-- <div class="form--body__end form-body-double">
+              <div class="form--body__end-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="var(--white3)"
+                  class="form--body-svg__end">
+                  <path
+                    d="m15.3 16.7 1.4-1.4-3.7-3.7V7h-2v5.4ZM12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-10Zm0 8q3.325 0 5.663-2.337Q20 15.325 20 12t-2.337-5.663Q15.325 4 12 4T6.338 6.337Q4 8.675 4 12t2.338 5.663Q8.675 20 12 20Z" />
+                </svg>
+              </div>
+              <div class="form--body__end-inputs">
+                <span class="form--body-end__date" data-form-date-type="end">
+                </span>
+    
+                <div class="form-br"></div>
+    
+              </div>
+            </div> -->
+            <!-- </div> -->
+            <!-- <div class="mini-header">
+              <div class="currr-date"></div>
+              <div class="mini-chevrons">
+                <i class="fa-solid fa-chevron-left fa-sm minimini-left" style="color: #000000;"></i>
+                <i class="fa-solid fa-chevron-right fa-sm minimini-right" style="color: #000000;"></i>
+              </div>
+            </div>
+            <div class="minimini-calendar"></div> -->
+            
+            <div class="popfooter">
+              <button class="saveTask" type="submit" role="button" aria-label="button">save</button>
+            </div>
+          </div>
+        
+          
+        
+
+      </div>
+    </div>
+    <!-- <div class="formss">
+      <div class="entries__form--header">
+        <div class="form-header--dragarea"></div>
+        <div class="form--header__icon-close" data-tooltip="close form">
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="var(--white2)">
+            <path
+              d="M6.062 15 5 13.938 8.938 10 5 6.062 6.062 5 10 8.938 13.938 5 15 6.062 11.062 10 15 13.938 13.938 15 10 11.062Z" />
+          </svg>
+        </div>
+      </div>
+  
+      <form class="entry-form">
+        <div class="entries__form--body">
+         
+          <div class="form--body__title form-body-single">
+            <input type="text" placeholder="Add title" class="form--body__title-input" maxlength="50" spellcheck="false"
+              required>
+          </div>
+  
+          <div class="form--body__description form-body-single">
+            <textarea placeholder="Add description" class="form--body__description-input" maxLength="200"
+              spellcheck="false"></textarea>
+          </div>
+  
+          
+          <div class="form--body__start form-body-double">
+            <div class="form--body__start-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="var(--white3)"
+                class="form--body-svg__start">
+                <path
+                  d="m15.3 16.7 1.4-1.4-3.7-3.7V7h-2v5.4ZM12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-10Zm0 8q3.325 0 5.663-2.337Q20 15.325 20 12t-2.337-5.663Q15.325 4 12 4T6.338 6.337Q4 8.675 4 12t2.338 5.663Q8.675 20 12 20Z" />
+              </svg>
+            </div>
+            <div class="form--body__start-inputs">
+              <span class="form--body-start__date" data-form-date-type="start">
+              </span>
+  
+              <div class="form-br"></div>
+  
+              <span class="form--body-start__time" data-form-time-type="start">
+                1:30am
+              </span>
+            </div>
+          </div>
+  
+         
+          <div class="form--body__end form-body-double">
+            <div class="form--body__end-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="var(--white3)"
+                class="form--body-svg__end">
+                <path
+                  d="m15.3 16.7 1.4-1.4-3.7-3.7V7h-2v5.4ZM12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-10Zm0 8q3.325 0 5.663-2.337Q20 15.325 20 12t-2.337-5.663Q15.325 4 12 4T6.338 6.337Q4 8.675 4 12t2.338 5.663Q8.675 20 12 20Z" />
+              </svg>
+            </div>
+            <div class="form--body__end-inputs">
+              <span class="form--body-end__date" data-form-date-type="end">
+              </span>
+  
+              <div class="form-br"></div>
+  
+  
+              <span class="form--body-end__time" data-form-time-type="end">
+                3:30am
+              </span>
+  
+            </div>
+          </div>
+  
+          
+          <div class="form--body__category form-body-double">
+            <div class="form--body__category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="var(--white3)">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" />
+              </svg>
+            </div>
+            <div class="form--body__category-inputs">
+              <aside class="close-options-floating__btn"
+                style="z-index:-1;user-select:none;pointer-events:none;opacity:0;box-shadow:none;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="var(--white3)">
+                  <path
+                    d="M6.062 15 5 13.938 8.938 10 5 6.062 6.062 5 10 8.938 13.938 5 15 6.062 11.062 10 15 13.938 13.938 15 10 11.062Z" />
+                </svg>
+              </aside>
+              <div class="form--body__category-modal--wrapper">
+                <div class="form--body__category-modal--wrapper-selection">
+                  <span class="form--body__category-modal--wrapper__color"></span>
+                  <span class="form--body__category-modal--wrapper__title">
+                  </span>
+                </div>
+                <span class="form--body__category-modal hide-form-category-modal">
+                </span>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+        <div class="entries__form--footer">
+          <button class="form--footer__button-cancel" type="reset" role="button" aria-label="button">reset</button>
+          <button class="form--footer__button-save" type="submit" role="button" aria-label="button">save</button>
+        </div>
+        
+    </div> -->
+    <script src="script.js"></script>
+  </body>
+</html>
