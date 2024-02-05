@@ -48,7 +48,32 @@ html {
   font-size: 2.5rem;
   cursor: pointer;
 }
+/* 
+.task-window .date-display{
+  height: 40px;
+  width: 180px;
+  background-color: white;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(218,220,224);
+  font-size: 15px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
 
+.task-window > .date-display {
+  justify-self: center;
+  align-self: center;
+}
+
+.task-window .date-display:hover {
+  background-color: #faf9f9;
+}
+
+.task-window.date-display:active {
+  background-color: #ededed;
+} */
 .header .today-button, select, .nearby-buttons > button {
   height: 40px;
   width: 80px;
@@ -468,6 +493,7 @@ html {
   position: absolute;
   left: 20vw;
   top: 20vh;
+  /* height: 100vh; */
   box-shadow: 5px 5px 10px rgb(215, 215, 215);
   border-radius: 5px;
   display: flex;
@@ -576,6 +602,7 @@ html {
 .description-section {
   width: 100%;
   height: 25%;
+  
   margin-top: 5px;
   margin-left: 20px;
   display: flex;
@@ -586,6 +613,7 @@ html {
 }
 .description-text {
   border: none;
+  background-color:rgb(240, 240, 240);
   width: 80%;
   height: 100px;
   font-size: 15px;
@@ -607,13 +635,142 @@ html {
 .add-task-div {
   width: 100%;
   height: 10%;
+  
   text-align: right;
 }
 
 .add-task {
   width: 60px;
+  margin-top: -10px;
   height: 30px;
   margin-right: 10px;
   background-color: rgb(26,115,232);
   color: white;
+}
+/* 
+.popup {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+} */
+
+
+.display-task {
+  /* background-color: rgb(240, 240, 240); */
+  border: none;
+}
+
+.display-task {
+  align-items: center;
+  margin-left: 8px;
+  background: transparent;
+  /* border-radius: 24px; */
+  /* box-shadow: 0 1px 2px 0 rgba(60,64,67,.302), 0 1px 3px 1px rgba(60,64,67,.149); */
+  cursor: pointer;
+  display: flex;
+  height: 48px;
+  margin-top: -5px;
+  padding: 0 4px;
+  width: 147.88px;
+  border: solid;
+  border-color: rgb(255, 255, 255);
+  /* border-width: 1px;; */
+  /* transition: background-color 0.2s, box-shadow 0.2s; */
+}
+
+.display-task:hover {
+  /* background-color:rgb(240, 240, 240);
+  box-shadow: 10px 10px 20px 0 rgba(60,64,67,.202), -10px 10px 20px 0 rgba(60,64,67,.202); */
+  background-color: rgb(240, 240, 240);
+}
+
+.display-task:active {
+  background-color: rgba(242, 250, 255, 0.358);
+}
+
+.adding-time {
+  /* background-color: rgb(240, 240, 240); */
+  border: none;
+}
+
+.adding-time{
+  align-items: center;
+  margin-left: 8px;
+  background: transparent;
+  /* border-radius: 24px; */
+  /* box-shadow: 0 1px 2px 0 rgba(60,64,67,.302), 0 1px 3px 1px rgba(60,64,67,.149); */
+  cursor: pointer;
+  display: flex;
+  height: 24px;
+  margin-top: -5px;
+  padding: 0 4px;
+  width: 100.88px;
+  border: solid;
+  border-color: rgb(255, 255, 255);
+  border-width: 1px;;
+  /* transition: background-color 0.2s, box-shadow 0.2s; */
+}
+
+.adding-time:hover {
+  /* background-color:rgb(240, 240, 240);
+  box-shadow: 10px 10px 20px 0 rgba(60,64,67,.202), -10px 10px 20px 0 rgba(60,64,67,.202); */
+  background-color: rgb(240, 240, 240);
+}
+
+.adding-time:active {
+  background-color: rgba(242, 250, 255, 0.358);
+}
+
+.adding-time-dropdown {
+  width: 100%;
+  height: 10%;
+  margin-top: 10px;
+  margin-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.adding-time-dropdown > button {
+  width: 20%;
+  font-size: 12px;
+}
+
+.adding-time-dropdown ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  display: none;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  max-height: 200px; /* Set a maximum height for the dropdown */
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+
+
+.adding-time-dropdown ul li {
+  padding: 12px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #333;
+  cursor: pointer;
+}
+
+.adding-time-dropdown ul li:hover {
+  background-color: #f5f5f5;
+}
+
+.adding-time-dropdown:hover ul {
+  display: block;
 }

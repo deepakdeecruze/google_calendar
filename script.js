@@ -123,6 +123,7 @@ const renderCalendar = () => {
     dateBox.addEventListener("click", () => {
       let classList = dateBox.classList;
       openTaskWindow(classList[1]);
+      renderTasksForDate(classList[1]);
     });
   });
 
@@ -228,6 +229,7 @@ function openTaskWindow(date) {
   dateBoxValue = date;
 }
 
+
 function addTask(taskTitle) {
   const dateBox = document.querySelector(`.${dateBoxValue}`);
   const taskNode = document.createElement("div");
@@ -243,6 +245,7 @@ function addTask(taskTitle) {
   taskNode.style.padding = "0px";
   taskNode.style.margin = "5px 0px 0px 0px";
   dateBox.appendChild(taskNode);
+  
 }
 
 document.querySelector(".add-task").addEventListener("click", () => {
@@ -250,8 +253,106 @@ document.querySelector(".add-task").addEventListener("click", () => {
   const title = titleTextNode.value;
   titleTextNode.value = "";
   addTask(title);
+  
+  document.querySelector(".task-window").style.display = "none";
+ 
+});
+
+document.querySelector(".close").addEventListener("click", () => {
   document.querySelector(".task-window").style.display = "none";
 });
+
+// const d = document.querySelector(".mini-calendar");
+// document.querySelector(".date-display").innerHTML = months[date.getMonth()] + " " + date.getDate() + " " + date.getFullYear();
+
+
+// const T = document.querySelector(".mini-calendar");
+// const currentDate = new Date();
+
+// // Use toLocaleString with options to get local time
+// const localTimeString = currentDate.toLocaleString({ timeZone: 'America/New_York' });
+// document.querySelector(".add-time-button").innerHTML = localTimeString;
+
+function createTask() {
+  // var taskInput = document.getElementById(".title-text").value;
+  // if (taskInput.trim() !== "") {
+    
+  //   var popup = document.getElementById("popup");
+  //   var popupText = document.getElementById("popup-text");
+  //   popupText.textContent = "Task Created Successfully!";
+  //   popup.style.display = "block";
+
+    
+  //   setTimeout(function() {
+  //     popup.style.display = "none";
+  //   }, 2000);
+  // }
+  alert("Task created successfully");
+}
+
+
+document.querySelector(".display-task").addEventListener("click", () => {
+  const currDate = new Date();
+  date.setFullYear(currDate.getFullYear(), currDate.getMonth(), currDate.getDate());
+  renderCalendar();
+});
+function toggleTimeDropdown() {
+  var dropdown = document.getElementById('timeDropdown');
+
+  // If the dropdown is already visible, hide it
+  if (dropdown.style.display === 'block') {
+      dropdown.style.display = 'none';
+  } else {
+      // If not, generate options and show it below the button
+      generateTimeOptions();
+      dropdown.style.display = 'block';
+      positionDropdown();
+  }
+}
+
+function generateTimeOptions() {
+  var dropdown = document.getElementById('timeDropdown');
+  
+  // Clear the dropdown before generating new options
+  dropdown.innerHTML = '';
+
+  // Populate dropdown with time options from 12:00 am to 11:45 pm in 12-hour format
+  for (let hours = 0; hours < 12; hours++) {
+      for (let minutes = 0; minutes < 60; minutes += 15) {
+          let period = (hours < 12) ? 'AM' : 'PM';
+          let displayHours = (hours === 0) ? 12 : (hours > 12) ? hours - 12 : hours;
+          let formattedHours = (displayHours < 10) ? '0' + displayHours : displayHours;
+          let formattedMinutes = (minutes === 0) ? '00' : minutes;
+          let timeOption = formattedHours + ':' + formattedMinutes + ' ' + period;
+
+          // Skip the last option if it's 11:45 PM
+          if (!(hours === 11 && minutes === 45)) {
+              var li = document.createElement('li');
+              li.textContent = timeOption;
+              dropdown.appendChild(li);
+          }
+      }
+  }
+}
+
+function positionDropdown() {
+  var button = document.querySelector('.adding-time');
+  var dropdown = document.getElementById('timeDropdown');
+
+  // Get the position of the button
+  var rect = button.getBoundingClientRect();
+
+  // Set the dropdown position below the button
+  dropdown.style.left = rect.left + 'px';
+  dropdown.style.top = rect.bottom + 'px';
+}
+
+function selectTime(event) {
+  var selectedTime = event.target.textContent;
+  document.querySelector('.adding-time').textContent = selectedTime;
+  document.getElementById('timeDropdown').style.display = 'none';
+}
+
 
 
 renderCalendar();

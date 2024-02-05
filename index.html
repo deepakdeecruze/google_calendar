@@ -119,7 +119,7 @@
       <div class="task-window" style="display: none;">
         <div class="task-window-header">
           <div class="task-window-close-button">
-            <i class="fa-solid fa-xmark fa-2xl" style="color: #616161;"></i>
+            <i class="fa-solid fa-xmark fa-2xl close" style="color: #616161;"></i>
           </div>
         </div>
         <input class="title-text" type="text" placeholder="Add title">
@@ -129,22 +129,34 @@
         </div>
         <div class="date-display-section">
           <i class="fa-regular fa-clock fa-2xl" style="color: #616161;"></i>
-          <div class="date-display">Jan 2, 2024</div>
-          <div class="add-time-button">Add time</div>
+          <button class="display-task" onclick="openminiminicalendar()"></button>
+          <!-- <div class="date-display"></div> -->
+          <!-- <div class="add-time-button">Add time</div> -->
+          <!-- <select id="timeDropdown"></select> -->
+          <!-- <button class="adding-time" onclick="generateTimeOptions()">Add Time</button> -->
+          <button class="adding-time" onclick="toggleTimeDropdown()">Add Time</button>
+          <ul id="timeDropdown" onclick="selectTime(event)"></ul>
+
         </div>
+        <br>
+
         <div class="description-section">
           <i class="fa-solid fa-bars-staggered fa-2xl" style="color: #616161;"></i>
           <input class="description-text" type="text" placeholder="Add description">
         </div>
+        <br>
         <div class="task-section">
           <i class="fa-solid fa-list fa-2xl" style="color: #616161;"></i>
           My Tasks
         </div>
         <div class="add-task-div">
-          <button class="add-task">SAVE</button>
+          <button class="add-task" onclick="createTask()">SAVE</button>
         </div>
       </div>
     </div>
+    <!-- <div class="popup" id="popup">
+      <span class="popup-text" id="popup-text">Task Created Successfully!</span>
+    </div> -->
     <script src="script.js"></script>
   </body>
 </html>
