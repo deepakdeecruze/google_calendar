@@ -774,3 +774,84 @@ html {
 .adding-time-dropdown:hover ul {
   display: block;
 }
+
+.timing{
+  overflow:auto;
+  height:60px;
+  width:60px;
+}
+
+
+.minimini-calendar {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 600;
+  margin: 10px auto 10px auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  height: 35vh;
+  width: 16vw;
+}
+
+.minimini-header {
+  font-size: 13px;
+  font-weight: 700;
+  width: 16vw;
+  height: 5vh;
+  margin: 20px auto 10px auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.minimini-header > .currr-date {
+  margin-left: 20px;
+  justify-self: left;
+
+}
+
+.minimini-header > .minimini-chevrons > *{
+  width: 15px;
+  height: 15px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.minimini-header > .minimini-chevrons > *:hover {
+  background-color: #ededed;
+}
+
+.date-box div,
+.minimini-calendar > div:not(.minimini-header) {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  padding: 3px 0;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.date-box .prev-date:hover, .date:hover, .next-date:hover,
+.minimini-calendar .prev-date:hover, .date:hover, .next-date:hover {
+  background-color: #ededed;
+  border: none;
+  cursor: pointer;
+}
+
+.prev-date,
+.next-date {
+  color: rgb(146, 151, 154);
+}
+
+
+.minimini-header > .miniminichevrons {
+  justify-items: center;
+  align-items: center;
+}
+.minimini-header > .miniminichevrons > * {
+  padding: 10px;
+}

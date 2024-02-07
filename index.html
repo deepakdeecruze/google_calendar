@@ -135,7 +135,10 @@
           <!-- <select id="timeDropdown"></select> -->
           <!-- <button class="adding-time" onclick="generateTimeOptions()">Add Time</button> -->
           <button class="adding-time" onclick="toggleTimeDropdown()">Add Time</button>
-          <ul id="timeDropdown" onclick="selectTime(event)"></ul>
+          <div class="timing">
+            <ul id="timeDropdown" onclick="selectTime(event)"></ul>
+          </div>
+          
 
         </div>
         <br>
@@ -151,8 +154,19 @@
         </div>
         <div class="add-task-div">
           <button class="add-task" onclick="createTask()">SAVE</button>
-        </div>
+        </div id="msg">
+          <pre></pre>
+        <div 
       </div>
+    </div>
+
+    <div class="minimini-header" style="display: none;">
+      <div class="currr-date"></div>
+      <div class="minimini-chevrons">
+        <i class="fa-solid fa-chevron-left fa-sm minimini-left" style="color: #000000;"></i>
+        <i class="fa-solid fa-chevron-right fa-sm minimini-right" style="color: #000000;"></i>
+      </div>
+      <div class="minimini-calendar"></div>
     </div>
     <!-- <div class="popup" id="popup">
       <span class="popup-text" id="popup-text">Task Created Successfully!</span>

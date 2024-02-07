@@ -1,5 +1,6 @@
 let date = new Date();
 let miniDate = new Date();
+let miniminiDate = new Date();
 const months = [
   "January",
   "February",
@@ -129,6 +130,7 @@ const renderCalendar = () => {
 
   miniDate.setFullYear(date.getFullYear(), date.getMonth(), date.getDate());
   renderMiniCalendar();
+  renderMiniMiniCalendar();
 
 }
 
@@ -156,6 +158,32 @@ const renderMiniCalendar = () => {
   monthDays.innerHTML = daysElement;
 }
 
+
+const renderMiniMiniCalendar = () => {
+  const monthDays = document.querySelector(".minimini-calendar");
+  document.querySelector(".currr-date").innerHTML = months[miniminiDate.getMonth()] + " " + miniminiDate.getFullYear();
+
+  let [dates, days, extraDays] = getDates(miniminiDate);
+  if (days.length/7 !== 6) {
+    days = days.concat(extraDays);
+  };
+
+  let daysElement =  `
+      <div class="weekdays">S</div>
+      <div class="weekdays">M</div>
+      <div class="weekdays">T</div>
+      <div class="weekdays">W</div>
+      <div class="weekdays">T</div>
+      <div class="weekdays">F</div>
+      <div class="weekdays">S</div>
+  `;
+  for (let i = 0; i < days.length; i++) {
+    daysElement += days[i];
+  }
+  monthDays.innerHTML = daysElement;
+}
+
+
 document.querySelector(".prev").addEventListener("click", () => {
   date.setMonth(date.getMonth() - 1);
   renderCalendar();
@@ -176,6 +204,18 @@ document.querySelector(".mini-right").addEventListener("click", () => {
   renderMiniCalendar();
 });
 
+
+document.querySelector(".minimini-left").addEventListener("click", () => {
+  miniminiDate.setMonth(miniminiDate.getMonth() - 1);
+  renderMiniMiniCalendar();
+});
+
+document.querySelector(".minimini-right").addEventListener("click", () => {
+  miniminiDate.setMonth(miniminiDate.getMonth() + 1);
+  renderMiniMiniCalendar();
+});
+
+
 document.querySelector(".today-button").addEventListener("click", () => {
   const currDate = new Date();
   date.setFullYear(currDate.getFullYear(), currDate.getMonth(), currDate.getDate());
@@ -194,6 +234,44 @@ document.getElementById("togC").addEventListener("click", () => {
     arrow.classList.add("fa-chevron-down");
   }
 });
+
+
+function openminiminicalendar(date) {
+  const taskWindow = document.querySelector(".minimini-header");
+  const width = 30, height = 60;
+  taskWindow.style.width = width+"vw";
+  taskWindow.style.height = height+"vh";
+
+  const dateIndex = dates.findIndex((element) => { 
+    // console.log(`'${element}'`, `'${date}'`, element==date);
+    return element == date; 
+  });
+
+  const [row, col] = [Math.trunc(dateIndex/7), dateIndex%7];
+  let leftVal = 18 + 82/7*(col+1);
+  let topVal = 10 + 90/10;
+  
+  if (leftVal+width < 100) { 
+    taskWindow.style.left = leftVal + "vw"; 
+  }
+  else {
+    taskWindow.style.left = 100-(82/7*(7-col))-width + "vw";
+  }
+  taskWindow.style.top = topVal + "vh";
+
+  if (taskWindow.style.display === "none") {
+    taskWindow.style.display = "flex";
+  }
+  else {
+    taskWindow.style.display = "none";
+  }
+  dateBoxValue = date;
+}
+
+
+
+
+
 
 let dateBoxValue = "";
 
@@ -245,7 +323,18 @@ function addTask(taskTitle) {
   taskNode.style.padding = "0px";
   taskNode.style.margin = "5px 0px 0px 0px";
   dateBox.appendChild(taskNode);
-  
+  saveTaskToLocalStorage(taskTitle);
+}
+
+function saveTaskToLocalStorage(taskTitle) {
+  let tasks;
+  if (localStorage.getItem("tasks") === null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
+  tasks.push(taskTitle);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
 document.querySelector(".add-task").addEventListener("click", () => {
@@ -354,5 +443,41 @@ function selectTime(event) {
 }
 
 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadTasksFromLocalStorage();
+});
+
+function loadTasksFromLocalStorage() {
+  let tasks;
+  if (localStorage.getItem("tasks") === null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
+
+  tasks.forEach(task => {
+    addTask(task);
+  });
+}
+
+// let movies =[];
+// const addmovie = (ev) =>{
+//   ev.preventDefault();
+//   let movie ={
+//     id:Date.now(),
+//     title: document.querySelector(".title-text").value
+//   }
+//   movies.push(movie);
+//   console.warn('added',{movies} );
+//   let pre = document.querySelector('#msg pre');
+//   pre.textContent = '\n' + JSON.stringify(movies, '\t',2);
+//   localStorage.setItem("my",JSON.stringify(movies));
+// }
+//   // document.forms[0].reset();
+//   document.addEventListener('DOMContentLoaded',()=>{
+//     document.querySelector('.add-task').addEventListener('click',addmovie);
+//   });
 
 renderCalendar();
